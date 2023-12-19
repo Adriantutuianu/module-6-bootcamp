@@ -1,9 +1,9 @@
-const timerEl = document.getElementById('countdown');
-const mainEl = document.getElementById('main');
+const timerEl = document.getElementById("countdown");
+const mainEl = document.getElementById("main");
 
 const message =
-  'Some say the world will end in 🔥, Some say in ice. From what I’ve tasted of desire, I hold with those who favor fire. But if it had to perish twice, I think I know enough of hate. To say that for destruction ice, Is also great, And would suffice.';
-const words = message.split(' ');
+  "Some say the world will end in 🔥, Some say in ice. From what I’ve tasted of desire, I hold with those who favor fire. But if it had to perish twice, I think I know enough of hate. To say that for destruction ice, Is also great, And would suffice.";
+const words = message.split(" ");
 
 function countdown() {
   let timeLeft = 5;
@@ -13,7 +13,18 @@ function countdown() {
     //
     // YOUR CODE HERE
     //
-  });
+    if (timeLeft > 1) {
+      timerEl.textContent = timeLeft;
+      timeLeft--;
+    } else if (timeLeft === 1) {
+      timerEl.textContent = timeLeft;
+      timeLeft--;
+    } else {
+      timerEl.textContent = "";
+      clearInterval(timeInterval);
+      displayMessage();
+    }
+  }, 1000);
 }
 
 // Displays the message one word at a time
