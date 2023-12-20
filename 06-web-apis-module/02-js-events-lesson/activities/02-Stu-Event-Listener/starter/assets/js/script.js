@@ -14,6 +14,8 @@ incrementEl.addEventListener("click", function () {
 });
 // TODO: Add event listener to decrement button
 decrementEl.addEventListener("click", function () {
-  count--;
-  setCounterText();
+  if (count > 0) {
+    count--;
+    setCounterText();
+  }
 });
