@@ -14,17 +14,17 @@ function displayMessage(type, message) {
   msgDiv.setAttribute("class", type);
 }
 
-signUpButton.addEventListener("click", function(event) {
+signUpButton.addEventListener("click", function (event) {
   event.preventDefault();
-  
+
   // create user object from submission
   const user = {
     firstName: firstNameInput.value.trim(),
     lastName: lastNameInput.value.trim(),
     email: emailInput.value.trim(),
-    password: passwordInput.value.trim()
+    password: passwordInput.value.trim(),
   };
-  
+
   // validate the fields
   if (user.firstName === "") {
     displayMessage("error", "First name cannot be blank");
@@ -38,9 +38,10 @@ signUpButton.addEventListener("click", function(event) {
     displayMessage("success", "Registered successfully");
 
     // set new submission
-    console.log(user);
-    localStorage.setItem("user", user);
-    
+
+    console.log(typeof user);
+    localStorage.setItem("user", JSON.stringify(user));
+
     // get most recent submission
     const lastUser = localStorage.getItem("user");
     userFirstNameSpan.textContent = lastUser.firstName;
