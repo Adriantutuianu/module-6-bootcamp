@@ -18,12 +18,14 @@ function renderTodos() {
 
     const li = document.createElement("li");
     li.textContent = todo;
+    li.setAttribute("data-index", i);
+
     todoList.appendChild(li);
   }
 }
 
 // When form is submitted...
-todoForm.addEventListener("submit", function(event) {
+todoForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const todoText = todoInput.value.trim();
@@ -38,5 +40,17 @@ todoForm.addEventListener("submit", function(event) {
   todoInput.value = "";
 
   // Re-render the list
+  renderTodos();
+});
+
+todoList.addEventListener("click", function (event) {
+  var clickedTodo = event.target;
+
+  var todoIndex = clickedTodo.getAttribute("data-index");
+
+  console.log(todoIndex);
+
+  todos.splice(todoIndex, 1);
+  console.log(todos);
   renderTodos();
 });

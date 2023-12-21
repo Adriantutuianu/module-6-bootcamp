@@ -20,6 +20,8 @@ function toDoRender() {
   }
 }
 
+toDoRender();
+
 todoForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
