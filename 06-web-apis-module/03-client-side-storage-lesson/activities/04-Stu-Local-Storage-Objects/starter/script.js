@@ -39,7 +39,6 @@ signUpButton.addEventListener("click", function (event) {
 
     // set new submission
 
-    console.log(typeof user);
     localStorage.setItem("user", JSON.stringify(user));
 
     // get most recent submission
